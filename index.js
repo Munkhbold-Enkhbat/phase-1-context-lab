@@ -43,7 +43,7 @@ function hoursWorkedOnDate(str) {
 function wagesEarnedOnDate (str) {
     return hoursWorkedOnDate.call(this, str) * this.payPerHour
 }
-/*
+/*`
  We're giving you this function. Take a look at it, you might see some usage
  that's new and different. That's because we're avoiding a well-known, but
  sneaky bug that we'll cover in the next few lessons!
@@ -68,3 +68,8 @@ function findEmployeeByFirstName(data, name) {
     return data.find(employee => employee.firstName === name ? createEmployeeRecord.call(this, name) : undefined)
 }
 
+function calculatePayroll(data) {
+    return data.reduce((sum, employee) => {
+        return sum += allWagesFor.call(employee)
+    }, 0)
+}
